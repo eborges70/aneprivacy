@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ane Carvalho 💋</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff0f5;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #d63384;
+    }
+    .pix-box {
+      background: #ffe4e1;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 300px;
+    }
+    .cta {
+      background: #d63384;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .cta:hover {
+      background: #c2185b;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Oi, amor… Ane Carvalho aqui 😘</h1>
+  <p>Preparei conteúdos exclusivos pra você se deliciar 💋</p>
+  <p>Fotos, vídeos, fantasias e até chamada de vídeo ao vivo 🔥</p>
+
+  <div class="pix-box">
+    <h2>Só R$10 para acessar 💕</h2>
+    <p>Essa é minha chave Pix, vida:</p>
+    <strong>86998083824</strong>
+    <p>Copie e cole no app do seu banco 💸</p>
+  </div>
+
+  <button class="cta" onclick="alert('Me chama no WhatsApp depois do Pix 😘')">
+    Já fiz o Pix!
+  </button>
+
+  <div class="footer">
+    <p>Após o pagamento, você recebe acesso ao grupo secreto e pode agendar sua chamada de vídeo 💕</p>
+    <p>Conteúdo exclusivo +18. Proibido para menores.</p>
+  </div>
+
+</body>
+</html>
