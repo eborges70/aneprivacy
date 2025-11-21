@@ -1,109 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ane Carvalho - Conteúdo Adulto</title>
+  <meta charset="UTF-8">
+  <title>Fale com Ane</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #0d0d0d;
-      color: #fff;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
     }
-    header {
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #ff007f, #ff4da6);
-    }
+
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+      font-size: 2em;
+      margin-bottom: 0.5em;
     }
+
     p {
       font-size: 1.2em;
-      max-width: 700px;
-      margin: 0 auto 20px;
+      margin-bottom: 2em;
+      max-width: 400px;
     }
-    .cta-button {
-      display: inline-block;
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: white;
       padding: 15px 30px;
-      background-color: #ff007f;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
+      font-size: 1.1em;
+      border: none;
       border-radius: 8px;
-      margin-top: 20px;
-    }
-    section {
-      padding: 40px 20px;
-    }
-    .depoimentos {
-      background-color: #1a1a1a;
-      padding: 30px;
-      border-radius: 10px;
-      margin: 20px auto;
-      max-width: 600px;
-    }
-    footer {
-      background-color: #000;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-    a {
-      color: #ff4da6;
+      cursor: pointer;
       text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1ebe5d;
     }
   </style>
-
-  <!-- Pixel do Facebook -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'SEU_ID_PIXEL_AQUI');
-    fbq('track', 'PageView');
-  </script>
-
-  <!-- Código Pushase -->
-  <script>
-    // Substitua pelo seu script Pushase
-    (function(p,u,s,h){
-      // Exemplo fictício
-      console.log("Pushase ativo");
-    })();
-  </script>
 </head>
-
 <body>
-  <header>
-    <h1>Ane Carvalho</h1>
-    <p>Prazer, atitude e conteúdo sem frescura. Sem censura, sem filtro, só tesão.</p>
-    <a href="https://wa.me/SEUNUMERO?text=Comprovante%20PIX" class="cta-button">Enviar Comprovante PIX</a>
-  </header>
+  <h1>Oi! Que bom ter você aqui 💬</h1>
+  <p>Estou pronta pra conversar com você no WhatsApp. É só clicar no botão abaixo e me chamar. Vai ser um prazer te atender!</p>
+  <a id="whatsappLink" class="btn-whatsapp" href="#">Falar agora pelo WhatsApp</a>
 
-  <section>
-    <h2>Sobre Ane</h2>
-    <p>Ane Carvalho é aquela mulher que sabe provocar. Com um jeitinho safado e carisma que hipnotiza, ela mistura sensualidade com verdade. Nada de pose forçada: o que você vê é real, intenso e feito com prazer.</p>
-  </section>
+  <script>
+    // Facebook Pixel
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){
+        n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+      };
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-  <section>
-    <h2>Depoimentos</h2>
-    <div class="depoimentos">
-      <p><strong>Francisco:</strong> “Nunca vi alguém tão natural e provocante ao mesmo tempo. A Ane é puro fogo!”</p>
-      <p><strong>David:</strong> “O conteúdo dela é viciante. Já assinei uma vez... e não consegui mais parar!”</p>
-      <p><strong>Bruno:</strong> “Ane não entrega só vídeos, ela entrega fantasia, desejo e conexão. Vale cada centavo!”</p>
-    </div>
-  </section>
+    fbq('init', '382101007899298');
+    fbq('track', 'PageView');
 
-  <footer>
-    <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
-  </footer>
+    // Link dinâmico vindo do backend
+    const linkApi = "{{$json['link_api']}}";
+    const whatsappLink = document.getElementById("whatsappLink");
+
+    if (linkApi && linkApi.includes("wa.me")) {
+      whatsappLink.href = linkApi;
+    } else {
+      whatsappLink.href = "#";
+      whatsappLink.innerText = "Link indisponível no momento";
+    }
+  </script>
 </body>
 </html>
 
