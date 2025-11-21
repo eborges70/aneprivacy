@@ -18,18 +18,8 @@
       height: 100vh;
       text-align: center;
     }
-
-    h1 {
-      font-size: 2em;
-      margin-bottom: 0.5em;
-    }
-
-    p {
-      font-size: 1.2em;
-      margin-bottom: 2em;
-      max-width: 400px;
-    }
-
+    h1 { font-size: 2em; margin-bottom: 0.5em; }
+    p { font-size: 1.2em; margin-bottom: 2em; max-width: 400px; }
     .btn-whatsapp {
       background-color: #25D366;
       color: white;
@@ -41,16 +31,17 @@
       text-decoration: none;
       transition: background-color 0.3s ease;
     }
-
-    .btn-whatsapp:hover {
-      background-color: #1ebe5d;
-    }
+    .btn-whatsapp:hover { background-color: #1ebe5d; }
   </style>
 </head>
 <body>
   <h1>Oi! Que bom ter você aqui 💬</h1>
   <p>Estou pronta pra conversar com você no WhatsApp. É só clicar no botão abaixo e me chamar. Vai ser um prazer te atender!</p>
-  <a id="whatsappLink" class="btn-whatsapp" href="#">Falar agora pelo WhatsApp</a>
+  
+  <!-- Botão já apontando para o webhook -->
+  <a class="btn-whatsapp" href="https://webhook-cf.zapsafe.work/webhook/eborges">
+    Falar agora pelo WhatsApp
+  </a>
 
   <script>
     // Facebook Pixel
@@ -66,21 +57,6 @@
 
     fbq('init', '382101007899298');
     fbq('track', 'PageView');
-
-    // Buscar número de WhatsApp disponível no webhook
-    fetch("https://webhook-cf.zapsafe.work/webhook/eborges")
-      .then(response => response.json())
-      .then(data => {
-        if (data && data.link_api) {
-          document.getElementById("whatsappLink").href = data.link_api;
-        } else {
-          document.getElementById("whatsappLink").innerText = "WhatsApp indisponível no momento";
-        }
-      })
-      .catch(error => {
-        console.error("Erro ao buscar número do WhatsApp:", error);
-        document.getElementById("whatsappLink").innerText = "Erro ao carregar link";
-      });
   </script>
 </body>
 </html>
