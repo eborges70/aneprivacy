@@ -67,18 +67,21 @@
     fbq('init', '382101007899298');
     fbq('track', 'PageView');
 
-    // Link dinâmico vindo do backend
-    const linkApi = "{{$json['link_api']}}";
-    const whatsappLink = document.getElementById("whatsappLink");
-
-    if (linkApi && linkApi.includes("wa.me")) {
-      whatsappLink.href = https://webhook-cf.zapsafe.work/webhook/eborges;
-    } else {
-      whatsappLink.href = "#";
-      whatsappLink.innerText = "WhatSapp";
-    }
+    // Buscar número de WhatsApp disponível no webhook
+    fetch("https://webhook-cf.zapsafe.work/webhook/eborges")
+      .then(response => response.json())
+      .then(data => {
+        if (data && data.link_api) {
+          document.getElementById("whatsappLink").href = data.link_api;
+        } else {
+          document.getElementById("whatsappLink").innerText = "WhatsApp indisponível no momento";
+        }
+      })
+      .catch(error => {
+        console.error("Erro ao buscar número do WhatsApp:", error);
+        document.getElementById("whatsappLink").innerText = "Erro ao carregar link";
+      });
   </script>
 </body>
 </html>
-
 
